@@ -1,0 +1,29 @@
+Si la salida de un modulo es reg, va a ser conductual, y si es wire, estructural.
+
+Cada módulo deberá ser un fichero y un test bench para ver si funciona cada fichero.
+
+
+
+1. UL4
+Crear el mux4_1 de forma conductual (lo instansiamos y luego lo usamos)
+
+Crear la celda logica de forma estructural
+
+4 cacharros en la alu
+
+
+
+2. SUMADOR 4 BITS
+full adder -> asignacion continua y el operador concatenación '{}'
+
+usamos 4 fa para la suma 
+
+
+3. 
+3.1 MUX entrada 4 bits y salida 4 bits
+hacer el mux2_4 de forma estructural (se puede hacer en una linea)
+
+3.2 Módulo de flags
+empatar el c out del sum en carry de flags
+
+el bit mas significativo es el signo en a2
