@@ -1,0 +1,95 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 11;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5c938f3a5920 .scope module, "fa_tb" "fa_tb" 2 3;
+ .timescale -9 -11;
+v0x5c938f3bc590_0 .var "test_a", 0 0;
+v0x5c938f3bc650_0 .var "test_b", 0 0;
+v0x5c938f3bc720_0 .var "test_c_in", 0 0;
+v0x5c938f3bc820_0 .net "test_c_out", 0 0, L_0x5c938f3bc990;  1 drivers
+v0x5c938f3bc8f0_0 .net "test_sum", 0 0, L_0x5c938f3bca80;  1 drivers
+S_0x5c938f3a5ab0 .scope module, "fa_1" "fa" 2 10, 3 3 0, S_0x5c938f3a5920;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "c_out";
+    .port_info 1 /OUTPUT 1 "sum";
+    .port_info 2 /INPUT 1 "a";
+    .port_info 3 /INPUT 1 "b";
+    .port_info 4 /INPUT 1 "c_in";
+L_0x749abf329060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x5c938f3a5c90_0 .net *"_ivl_10", 0 0, L_0x749abf329060;  1 drivers
+v0x5c938f3bbab0_0 .net *"_ivl_11", 1 0, L_0x5c938f3bce70;  1 drivers
+v0x5c938f3bbb90_0 .net *"_ivl_13", 1 0, L_0x5c938f3bd020;  1 drivers
+L_0x749abf3290a8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x5c938f3bbc80_0 .net *"_ivl_16", 0 0, L_0x749abf3290a8;  1 drivers
+v0x5c938f3bbd60_0 .net *"_ivl_17", 1 0, L_0x5c938f3bd1a0;  1 drivers
+v0x5c938f3bbe90_0 .net *"_ivl_3", 1 0, L_0x5c938f3bcbc0;  1 drivers
+L_0x749abf329018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x5c938f3bbf70_0 .net *"_ivl_6", 0 0, L_0x749abf329018;  1 drivers
+v0x5c938f3bc050_0 .net *"_ivl_7", 1 0, L_0x5c938f3bcd00;  1 drivers
+v0x5c938f3bc130_0 .net "a", 0 0, v0x5c938f3bc590_0;  1 drivers
+v0x5c938f3bc1f0_0 .net "b", 0 0, v0x5c938f3bc650_0;  1 drivers
+v0x5c938f3bc2b0_0 .net "c_in", 0 0, v0x5c938f3bc720_0;  1 drivers
+v0x5c938f3bc370_0 .net "c_out", 0 0, L_0x5c938f3bc990;  alias, 1 drivers
+v0x5c938f3bc430_0 .net "sum", 0 0, L_0x5c938f3bca80;  alias, 1 drivers
+L_0x5c938f3bc990 .part L_0x5c938f3bd1a0, 1, 1;
+L_0x5c938f3bca80 .part L_0x5c938f3bd1a0, 0, 1;
+L_0x5c938f3bcbc0 .concat [ 1 1 0 0], v0x5c938f3bc590_0, L_0x749abf329018;
+L_0x5c938f3bcd00 .concat [ 1 1 0 0], v0x5c938f3bc650_0, L_0x749abf329060;
+L_0x5c938f3bce70 .arith/sum 2, L_0x5c938f3bcbc0, L_0x5c938f3bcd00;
+L_0x5c938f3bd020 .concat [ 1 1 0 0], v0x5c938f3bc720_0, L_0x749abf3290a8;
+L_0x5c938f3bd1a0 .arith/sum 2, L_0x5c938f3bce70, L_0x5c938f3bd020;
+    .scope S_0x5c938f3a5920;
+T_0 ;
+    %vpi_call 2 14 "$monitor", "tiempo=%0d a=%b b=%b c=%b out=%b sum=%b", $time, v0x5c938f3bc590_0, v0x5c938f3bc650_0, v0x5c938f3bc720_0, v0x5c938f3bc820_0, v0x5c938f3bc8f0_0 {0 0 0};
+    %vpi_call 2 15 "$dumpfile", "fa.vcd" {0 0 0};
+    %vpi_call 2 16 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc720_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc590_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc650_0, 0, 1;
+    %delay 2000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc720_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc590_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc650_0, 0, 1;
+    %delay 2000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc720_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc590_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc650_0, 0, 1;
+    %delay 2000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc720_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5c938f3bc590_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc650_0, 0, 1;
+    %delay 2000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc720_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc590_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5c938f3bc650_0, 0, 1;
+    %delay 2000, 0;
+    %vpi_call 2 44 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "fa_tb.v";
+    "fa.v";

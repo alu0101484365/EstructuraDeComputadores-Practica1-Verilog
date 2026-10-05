@@ -1,3 +1,4 @@
+28/09/2026
 Si la salida de un modulo es reg, va a ser conductual, y si es wire, estructural.
 
 Cada módulo deberá ser un fichero y un test bench para ver si funciona cada fichero.
@@ -27,3 +28,33 @@ hacer el mux2_4 de forma estructural (se puede hacer en una linea)
 empatar el c out del sum en carry de flags
 
 el bit mas significativo es el signo en a2
+
+
+
+
+05/10/2026
+el modulo preprocess hace todo lo que sum4 y ul4, restar por ejemplo
+sin el preprocess = A - B = A + (-B) = A + Ca1(B) + 1 (para que sea Ca2)
+El modulo preprocess modifica las entradas, y como trabajo en Ca2, tenemos la señal add 1 que va al sum es eso del Ca2.
+2 mux, un cacharro para negar, una logica (con asignacion continua) que me de valores de control
+
+Op[2] Op[1] Op[0]  Operacion            op1_A       op2_b      cpl      add1
+ 0      0     0         A                   
+ 0      0     1         -A
+ .                      A+B                 1           1        0          0
+ .                       A-B
+ .                       ~a
+                        A & B
+                        .
+                        .
+                        .
+
+module preprocess(...)
+    assign op1_A = ~Op[2] & Op[1];
+endmodule
+
+
+
+
+
+modificaciones : hazme esto estructural en vez de conductual, cambia esta operacion por esta otra,...
