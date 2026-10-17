@@ -1,0 +1,48 @@
+$date
+	Sat Oct 17 11:05:14 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module cpl_tb $end
+$var wire 4 ! test_out [3:0] $end
+$var reg 1 " test_cpl $end
+$var reg 4 # test_inp [3:0] $end
+$scope module compl1_1 $end
+$var wire 4 $ Inp [3:0] $end
+$var wire 1 " cpl $end
+$var wire 4 % Out [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b111 %
+b111 $
+b111 #
+0"
+b111 !
+$end
+#2000
+b1000 !
+b1000 %
+b1000 #
+b1000 $
+#4000
+b1000 !
+b1000 %
+b111 #
+b111 $
+1"
+#6000
+b111 !
+b111 %
+b1000 #
+b1000 $
+#8000
