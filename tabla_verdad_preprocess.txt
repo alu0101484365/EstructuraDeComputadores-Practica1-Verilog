@@ -1,0 +1,7 @@
+ Op  | Operación     | AMod    | BMod      | op1_A      | op2_B   | cpl   | add1 
+     |               |         |           |            |         |       | 
+ 000 | Identidad (A) | A       | 4'b0000   | 0 (no es 1)| 0       | 0     | 0
+ 001 | Negativo (-A) | 4'b0000 | ~A        | 0          | 0       | 1     | 1
+ 010 | Suma (A + B)  | A       | B         | 1          | 1       | 0     | 0
+ 011 | Resta (A - B) | A       | ~B        | 1          | 1       | 1     | 1
+ 1xx | Lógicas       | A       | B         | 1          | 1       | 0     | 0
